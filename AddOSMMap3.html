@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>加载OSM地图</title>
+    <!-- 引入ol.css，以及ol.css -->
+    <link rel="stylesheet" href="css/ol.css">
+    <script src="js/ol.js"></script>
+    <style>
+        #map {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+        }
+    </style>
+    <script>
+        function init() {
+            //实例化Map对象，用于加载地图
+            var map = new ol.Map({
+                target: 'map', //地图容器div的id
+                //在地图容器中加载的图层
+                layers: [
+                    //加载瓦片图层数据
+                    new ol.layer.Tile({
+                        source: new ol.source.OSM() //加载osm瓦片
+                    })
+                ],
+                //地图视图设置
+                view: new ol.View({
+                    center: [0, 0],
+                    zoom: 2
+
+                })
+
+            });
+
+        }
+    </script>
+</head>
+
+<body onload="init()">
+    <div id="map"></div>
+</body>
+
+</html>
