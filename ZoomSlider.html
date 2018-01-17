@@ -4,9 +4,10 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>加载OSM地图</title>
+    <title>自定义导航功能</title>
     <!-- 引入ol.css，以及ol.css -->
     <link rel="stylesheet" href="css/ol.css">
+    <link rel="stylesheet" href="css/ZoomSlider.css">
     <script src="js/ol.js"></script>
     <style>
         #map {
@@ -34,7 +35,16 @@
                 })
 
             });
-
+            //实例化ZoomSlider控件并加载到地图容器中
+            var zoomslider = new ol.control.ZoomSlider();
+            map.addControl(zoomslider);
+            //实例化zoomToExent控件并加载到地图容器中
+            var zoomToExent = new ol.control.ZoomToExtent({
+                extend: [13100000, 4290000,
+                    13200000, 5210000
+                ]
+            });
+            map.addControl(zoomToExent);
         }
     </script>
 </head>
