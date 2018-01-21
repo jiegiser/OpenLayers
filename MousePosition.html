@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>鼠标移动显示坐标信息</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/ol.css">
+    <link rel="stylesheet" href="css/ZoomSlider.css">
+    <script src="js/ol.js"></script>
+    <script src="js/MousePosition.js"></script>
+    <style>
+        #map {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+        }
+        
+        #mouse-position {
+            float: left;
+            position: absolute;
+            bottom: 5px;
+            width: 200px;
+            height: 20px;
+            /* 将z-index设置为显示在地图上层 */
+            z-index: 2000;
+        }
+        /* 显示鼠标信息的自定义样式设置 */
+        
+        .custom-mouse-position {
+            color: red;
+            font-size: 16px;
+            font-family: "微软雅黑";
+        }
+    </style>
+</head>
+
+<body onload="init()">
+    <div id="map">
+        <div id="mouse-position"></div>
+    </div>
+</body>
+
+</html>
