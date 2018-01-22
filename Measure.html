@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>测量功能</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/ol.css">
+    <link rel="stylesheet" href="css/ZoomSlider.css">
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/Measure.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/ol.js"></script>
+    <style>
+        #map {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+        }
+        
+        #menu {
+            float: left;
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            z-index: 2000;
+        }
+        
+        .checkbox {
+            left: 20px;
+        }
+        /* 提示框的样式信息 */
+        
+        .tooltip {
+            position: relative;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 4px;
+            color: white;
+            padding: 4px 8px;
+            opacity: 0.7;
+            white-space: nowrap;
+        }
+        
+        .tooltip-measure {
+            opacity: 1;
+            font-weight: bold;
+        }
+        
+        .tooltip-static {
+            background-color: #ffcc33;
+            color: black;
+            border: 1px solid white;
+        }
+        
+        .tooltip-measure::before,
+        .tooltip-static::before {
+            border-top: 6px solid rgb(0, 0, 0, 0.5);
+            border-right: 6px solid transparent;
+            border-left: 6px solid transparent;
+            content: "";
+            position: absolute;
+            bottom: -6px;
+            margin-left: -7px;
+            left: 50%;
+        }
+        
+        .tooltip-static::before {
+            border-top-color: #ffcc33;
+        }
+    </style>
+</head>
+
+<body onload="init()">
+    <div id="map">
+        <div id="menu">
+            <label>测量类型：</label>
+            <select id="type">
+            <option value="length">长度</option>
+            <option value="area">面积</option>
+        </select>
+            <label class="checkbox"><input type="checkbox" id="geodesic">测地学方法(基于数据的投影坐标系进行计算)</label>
+        </div>
+    </div>
+</body>
+
+</html>
