@@ -14,6 +14,11 @@ function init() {
         label: '\u00AB', //鹰眼控件折叠时功能按钮上的标识
         collapsed: false //初始为展开方式
     });
+    // 实例化比例尺控件
+    var scaleLineControl = new ol.control.ScaleLine({
+        // 设置比例尺单位为degrees、imperial、us、nautical或metric（度量单位）
+        units: "metric"
+    });
     // 实例化map对象，用于加载地图
     var map = new ol.Map({
         target: 'map', //地图容器的div
@@ -30,6 +35,10 @@ function init() {
         }),
         // 加载控件到地图容器中
         // 加载鹰眼控件
-        controls: ol.control.defaults().extend([overviewMapControl])
+        // controls: ol.control.defaults().extend([overviewMapControl]),
+        // controls: ol.control.defaults().extend([])
     });
+    map.addControl(scaleLineControl);
+    map.addControl(overviewMapControl);
+
 }
